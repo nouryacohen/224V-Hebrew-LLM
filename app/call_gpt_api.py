@@ -1,12 +1,12 @@
-from config import Config
+from .config import Config
 from openai import OpenAI
 
 client = OpenAI(
   api_key=Config.GPT_API_KEY
 )
 
-def call_gpt_api(input="hello what is openai?"):
-    messages = [{"role": "system", "content": input}]
+def call_gpt_api(messages):
+    
     response = client.chat.completions.create(
         model="gpt-4o", 
         temperature=1.0, 

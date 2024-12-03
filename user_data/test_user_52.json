@@ -1,0 +1,21 @@
+{
+  "learned_words": {
+    "": 0.8,
+    "ו": 0.2,
+    "היו": 0.2,
+    "יום": 0.2,
+    "היה": 0.4
+  },
+  "role_play": null,
+  "current_position": 20,
+  "conversation_history": [
+    "User: hello ",
+    "Assistant: Hello! How are you feeling היום?",
+    "User: what is היום",
+    "Assistant: היום means \"today.\" How היה your יום so far?",
+    "User: what is היה",
+    "Assistant: הם you enjoying your day so far?",
+    "User: yes I am ",
+    "Assistant: Great to hear! Anything exciting זה happening היום?"
+  ]
+}

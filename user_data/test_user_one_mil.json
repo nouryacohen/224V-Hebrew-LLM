@@ -1,0 +1,15 @@
+{
+  "learned_words": {
+    "": 0.3,
+    "איך": 0.1,
+    "אי": 0.0
+  },
+  "role_play": null,
+  "current_position": 10,
+  "conversation_history": [
+    "User: hello ",
+    "Assistant: Hello! איך can I help you today?",
+    "User: lets have a conversation ",
+    "Assistant: Sure, I'd love that. What נושא are you interested in chatting על today?"
+  ]
+}

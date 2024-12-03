@@ -1,0 +1,15 @@
+{
+  "learned_words": {
+    "": 0.6000000000000001
+  },
+  "role_play": "Harry",
+  "current_position": 15,
+  "conversation_history": [
+    "User: Hello!",
+    "Assistant: Hey there! How are you doing היום?",
+    "User: Shalom I want to learn Hebrew",
+    "Assistant: Shalom! That's great שאתה רוצה ללמוד עברית. Let's get started היום!",
+    "User: i dont understand any of that ",
+    "Assistant: Sorry, Harry here! No worries, we can take it צעד by צעד. How about we start with basic words like \"שלום\"?"
+  ]
+}

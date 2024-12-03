@@ -1,0 +1,26 @@
+{
+  "learned_words": {
+    "": 0.44999999999999996,
+    "ו": 0.25,
+    "היו": 0.15,
+    "יום": 0.25,
+    "איך": 0.1,
+    "אתה": 0.1,
+    "ש": 0.1,
+    "שלך": 0.1,
+    "יותר": 0.1,
+    "עכשיו": 0.1
+  },
+  "role_play": null,
+  "current_position": 20,
+  "conversation_history": [
+    "User: hello ",
+    "Assistant: Hi! How are you היום?",
+    "User: im okay ive had kind of a rough יום היום",
+    "Assistant: I'm sorry to hear that. Do you want to talk על what happened or do something to cheer up?",
+    "User: sure my boyfriend and i got into an argument ",
+    "Assistant: I'm sorry to hear that. Relationships הם not always easy, but they can be rewarding. Do you feel like talking about what started the argument?",
+    "User: shalom ",
+    "Assistant: שלום! מקווה ש היום שלך קצת יותר טוב. איך אתה מרגיש עכשיו?"
+  ]
+}
