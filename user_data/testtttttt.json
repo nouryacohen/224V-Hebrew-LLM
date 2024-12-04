@@ -1,0 +1,23 @@
+{
+  "word_history": {
+    "טוב": {
+      "observations": [
+        {
+          "timestamp": "2024-12-03T00:30:37.741836",
+          "comment": "asked about basic meaning, does not know word"
+        }
+      ],
+      "last_used": "2024-12-03T00:30:37.741867"
+    }
+  },
+  "role_play": null,
+  "current_position": 15,
+  "conversation_history": [
+    "User: shalom ",
+    "Assistant: שלום! מה שלומך היום?",
+    "User: אני בסדר",
+    "Assistant: יופי, שמח לשמוע. עשית משהו מיוחד השבוע? מה היה הכי כיף?",
+    "User: לא אני לא",
+    "Assistant: לא קרה שום דבר מיוחד השבוע? לפעמים גם פשוט להיות בְּשֶׁקֶט זה נחמד. יש לך תוכניות לסוף השבוע?"
+  ]
+}
