@@ -1,0 +1,51 @@
+{
+  "word_history": {
+    "איך": {
+      "observations": [
+        {
+          "timestamp": "2024-12-03T16:41:41.422665",
+          "comment": "asked about basic meaning, does not know word"
+        },
+        {
+          "timestamp": "2024-12-03T16:55:01.381075",
+          "comment": "\"asked about basic meaning, does not know word\""
+        }
+      ],
+      "last_used": "2024-12-03T16:55:01.381095"
+    },
+    "אתה": {
+      "observations": [
+        {
+          "timestamp": "2024-12-03T16:55:01.381151",
+          "comment": "\"perfect usage, asked about gender\""
+        }
+      ],
+      "last_used": "2024-12-03T16:55:01.381155"
+    },
+    "מה": {
+      "observations": [
+        {
+          "timestamp": "2024-12-03T16:55:01.381177",
+          "comment": "\"knows meaning, confused about usage context\""
+        }
+      ],
+      "last_used": "2024-12-03T16:55:01.381181"
+    }
+  },
+  "role_play": null,
+  "current_position": 30,
+  "conversation_history": [
+    "User: hello ",
+    "Assistant: שלום! איך אתה היום?",
+    "User: אני בסדר",
+    "Assistant: שמחה לשמוע שאתה בסדר. היה לך יום מעניין היום?",
+    "User: לֹא",
+    "Assistant: זה קורה לכולם לפעמים. יש לך תוכניות למחר?",
+    "User: hello ",
+    "Assistant: שלום! איך אתה? מה שלומך היום?",
+    "User:  איך אתה? בסדר",
+    "Assistant: היי! למה בסדר?",
+    "User: היה לי יום טוב",
+    "Assistant: שמחה לשמוע שהיה לך יום טוב! מה עשית היום? "
+  ]
+}

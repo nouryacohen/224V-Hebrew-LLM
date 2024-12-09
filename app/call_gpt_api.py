@@ -9,7 +9,7 @@ def call_gpt_api(messages):
     
     response = client.chat.completions.create(
         model="gpt-4o", 
-        temperature=1.0, 
+        temperature=0.1, 
         messages=messages
     )
     return response.choices[0].message.content

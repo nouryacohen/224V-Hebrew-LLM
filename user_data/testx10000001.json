@@ -1,0 +1,11 @@
+{
+  "word_history": {},
+  "role_play": null,
+  "current_position": 10,
+  "conversation_history": [
+    "User: hello ",
+    "Assistant: שלום! מה שלומך?",
+    "User: בסדר",
+    "Assistant: יופי, שמח לשמוע! מה עשית היום?"
+  ]
+}

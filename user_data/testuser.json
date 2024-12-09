@@ -1,0 +1,13 @@
+{
+  "word_history": {},
+  "role_play": null,
+  "current_position": 15,
+  "conversation_history": [
+    "User: shalom ",
+    "Assistant: שלום! מה שלומך היום?",
+    "User: אני טוב! מה שלומך",
+    "Assistant: אני בסדר, תודה! מה התוכניות שלך להיום? ",
+    "User: התוכניות שלי להיום הן בעיקר עבודה",
+    "Assistant: עבודה זה חשוב! מה אתה עושה בעבודה שלך? יש לך פרויקטים מעניינים?"
+  ]
+}

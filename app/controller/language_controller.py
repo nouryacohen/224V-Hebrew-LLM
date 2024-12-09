@@ -56,6 +56,7 @@ def add_observation(history: WordHistory, comment: str) -> WordHistory:
     history.last_used = datetime.now().isoformat()
     return history
 
+
 class UserStorage:
     @staticmethod
     def get_user_file_path(username: str) -> Path:
@@ -80,18 +81,17 @@ class PromptTemplate:
     @staticmethod
     def create_system_prompt() -> str:
         return """You are a language learning buddy helping users learn Hebrew through natural conversation. You will:
-        1. Match the user's level based on their word history
-        If a user is giving you short responses, respond with less complicated words.
-        2. Use well-understood words as a foundation
-        3. Match the roleplay context if provided
-        4. Keep responses concise and conversational (1-2 sentences)
-        5. Never directly explain word meanings - let users learn through context
-        6. Never use English translations in parentheses
-        7. Ensure natural conversation flow
-        8. Talk as a friend, not a tutor
-        9. MOST importantly! Match the users level based off of their corpus and the questions they have asked, reinforcing words they just asked about and matching their level. 
-        10. If a user is responding shortly that means their level is low, if the user history shows that they just asked about a basic word, lower the level. Use the history to match their level as a roleplay assistant.
-        11. THE ENTIRE GOAL IS TO TEACH THEM THE 1000 MOST COMMON WORDS!! If they are asking about a word re-use them, do not ask obscure words, introduce words slowly!!"""
+        1. Match the user's level based on their word history and conversation history.
+        2. Use well-understood words as a foundation and introduce new words gradually.
+        3. Match the roleplay context if provided.
+        4. Keep responses concise and conversational (1-2 sentences).
+        5. Reinforce words the user has recently asked about or used incorrectly.
+        6. Avoid using English translations in parentheses.
+        7. Ensure natural conversation flow.
+        8. Talk as a friend, not a tutor.
+        9. Focus on teaching the 1000 most common words, reinforcing them through context.
+        10. SPEAK ONLY IN HEBREW.
+        """
 
     @staticmethod
     def create_conversation_prompt(
@@ -124,16 +124,10 @@ class PromptTemplate:
         {chr(10).join(word_knowledge)}
 
         Use the user's knowledge and struggles to come up with conversation that matches their level. 
-
-        If the user is struggling with basic verbs, reinforce them slowly. 
-        
-        ie: 
-        You: שלום! מה שלומך? אני שמח לדבר איתך.
-        Word Knowledge: user asked for the meaning of each word: שלום! מה שלומך? אני שמח לדבר איתך. and user asked how to say okay.
-        User: אני בְּסֵדֶר
-
-        You (ideally): למה בסדר? because this is a simple message that uses the word they just used, being minfdul that they do not know much
-        Generate a natural response that continues the conversation while being mindful of the user's understanding:"""
+        Reinforce words they have recently asked about or used incorrectly.
+        Introduce new words gradually, focusing on the most common words.
+        SPEAK ONLY IN HEBREW.
+        """
 
     @staticmethod
     def create_evaluation_prompt(user_message: str) -> str:
@@ -194,7 +188,6 @@ async def assist(input_data: QueryInput):
     
     UserStorage.save_user_data(input_data.username, user_progress)
 
-    # Generate explanation
     explanation = call_gpt_api([
         {"role": "system", "content": "You are a Hebrew language assistant. Provide clear, helpful explanations in English."},
         {"role": "user", "content": input_data.query}
@@ -209,15 +202,16 @@ async def assist(input_data: QueryInput):
 async def converse(input_data: ConversationInput):
     user_progress = UserStorage.load_user_data(input_data.username)
     
+    if not user_progress.conversation_history:
+        user_progress.conversation_history = []
+
     if input_data.role_play is not None:
         user_progress.role_play = input_data.role_play
 
-    # Get next words to introduce
     current_words = set(user_progress.word_history.keys())
     next_words = [w for w in FREQUENCY_LIST[user_progress.current_position:] 
                  if w not in current_words][:5]
 
-    # Generate conversation response
     response = call_gpt_api([
         {"role": "system", "content": PromptTemplate.create_system_prompt()},
         {"role": "user", "content": PromptTemplate.create_conversation_prompt(
@@ -229,13 +223,11 @@ async def converse(input_data: ConversationInput):
         )}
     ])
 
-    # Evaluate user's word usage
     evaluation = call_gpt_api([
         {"role": "system", "content": "You are a Hebrew language evaluator."},
         {"role": "user", "content": PromptTemplate.create_evaluation_prompt(input_data.user_message)}
     ])
 
-    # Update word history based on evaluation
     for line in evaluation.split('\n'):
         if ':' in line:
             word, comment = line.split(':', 1)
@@ -250,13 +242,11 @@ async def converse(input_data: ConversationInput):
                     comment
                 )
 
-    # Update conversation history
     user_progress.conversation_history.extend([
         f"User: {input_data.user_message}",
         f"Assistant: {response}"
     ])
 
-    # Update current position
     user_progress.current_position = min(
         user_progress.current_position + len(next_words),
         len(FREQUENCY_LIST)
@@ -275,7 +265,6 @@ async def converse(input_data: ConversationInput):
 async def get_user_progress(username: str):
     progress = UserStorage.load_user_data(username)
     
-    # Categorize words based on latest observations
     word_status = {
         "mastered": [],
         "needs_reinforcement": [],

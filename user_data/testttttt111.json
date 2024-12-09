@@ -1,0 +1,48 @@
+{
+  "word_history": {
+    "מה": {
+      "observations": [
+        {
+          "timestamp": "2024-12-03T16:49:06.760368",
+          "comment": "perfect usage, asked about context"
+        }
+      ],
+      "last_used": "2024-12-03T16:49:06.760378"
+    },
+    "אני": {
+      "observations": [
+        {
+          "timestamp": "2024-12-03T16:49:06.760407",
+          "comment": "knows meaning, confused about usage context"
+        }
+      ],
+      "last_used": "2024-12-03T16:49:06.760409"
+    },
+    "שמח": {
+      "observations": [
+        {
+          "timestamp": "2024-12-03T16:49:06.760426",
+          "comment": "asked about gender, unsure of correct form"
+        }
+      ],
+      "last_used": "2024-12-03T16:49:06.760427"
+    },
+    "לדבר": {
+      "observations": [
+        {
+          "timestamp": "2024-12-03T16:49:06.760442",
+          "comment": "knows meaning, confused about verb structure"
+        }
+      ],
+      "last_used": "2024-12-03T16:49:06.760444"
+    }
+  },
+  "role_play": null,
+  "current_position": 10,
+  "conversation_history": [
+    "User: shalom ",
+    "Assistant: שלום! מה שלומך? אני שמח לדבר איתך.",
+    "User: אני בְּסֵדֶר",
+    "Assistant: יופי, אני שמח לשמוע! מה עשית היום?"
+  ]
+}
